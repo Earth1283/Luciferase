@@ -12,6 +12,11 @@ build
 /paper-server
 /paper-api
 /paper-api-generator
+/folia-api/
+/folia-server/
+/lophine-server/src/minecraft/
+/lophine-generator.settings.gradle.kts
+/test-plugin.settings.gradle.kts
 
 .idea/
 
