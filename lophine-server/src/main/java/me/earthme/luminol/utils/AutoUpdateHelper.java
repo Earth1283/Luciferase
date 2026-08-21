@@ -46,8 +46,16 @@ public final class AutoUpdateHelper {
 
     private volatile @Nullable ScheduledExecutorService scheduler;
 
+    private static boolean updatesConfigured() {
+        return false;
+    }
+
     public synchronized void load(boolean reload) {
         if (reload) shutdown();
+        if (!updatesConfigured()) {
+            LOGGER.warn("Luciferase auto-update is not configured; automatic updates remain disabled.");
+            return;
+        }
         ensureWorkingDirectories();
 
         scheduler = Executors.newSingleThreadScheduledExecutor(task -> {

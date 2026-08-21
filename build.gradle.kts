@@ -110,8 +110,8 @@ subprojects {
 // Sort all JSON language files under the lang directory by key in ASCII order
 val langDir = layout.projectDirectory.dir("lophine-server/src/main/resources/assets/lophine/lang")
 tasks.register("sortLangKeys") {
-    group = "lophine"
-    description = "Sort all JSON language files by key in ASCII (ordinal) order"
+    group = "luciferase"
+    description = "Sort Luciferase language files by key in ASCII (ordinal) order"
     notCompatibleWithConfigurationCache("Inline task action references build script class")
     inputs.dir(langDir).optional()
     outputs.dir(langDir)

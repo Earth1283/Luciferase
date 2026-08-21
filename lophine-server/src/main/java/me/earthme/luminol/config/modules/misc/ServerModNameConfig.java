@@ -8,7 +8,7 @@ import me.earthme.luminol.enums.EnumConfigCategory;
 @ConfigClassInfo(category = EnumConfigCategory.MISC, name = "server_mod_name")
 public class ServerModNameConfig implements IConfigModule {
     @ConfigInfo(name = "name")
-    public static String serverModName = "Lophine";
+    public static String serverModName = "Luciferase";
 
     @ConfigInfo(name = "vanilla_spoof")
     public static boolean fakeVanilla = false;

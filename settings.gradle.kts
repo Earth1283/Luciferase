@@ -18,7 +18,7 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
-rootProject.name = "lophine"
+rootProject.name = "luciferase"
 
 for (name in listOf("lophine-api", "lophine-server")) {
     include(name)
@@ -46,12 +46,12 @@ fun optionalInclude(name: String, op: (ProjectDescriptor.() -> Unit)? = null) {
 
 gradle.lifecycle.beforeProject {
     val mcVersion = providers.gradleProperty("mcVersion").get().trim()
-    val lophineVersionChannel = providers.gradleProperty("channel").get().trim()
-    val lophineBuildNumber = providers.environmentVariable("BUILD_NUMBER").orNull?.trim()?.toInt()
-    val versionString = if (lophineBuildNumber == null) {
+    val luciferaseVersionChannel = providers.gradleProperty("channel").get().trim()
+    val luciferaseBuildNumber = providers.environmentVariable("BUILD_NUMBER").orNull?.trim()?.toInt()
+    val versionString = if (luciferaseBuildNumber == null) {
         "$mcVersion.local-SNAPSHOT"
     } else {
-        "$mcVersion.build.$lophineBuildNumber-${lophineVersionChannel.lowercase()}"
+        "$mcVersion.build.$luciferaseBuildNumber-${luciferaseVersionChannel.lowercase()}"
     }
     version = versionString
 }

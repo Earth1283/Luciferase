@@ -8,7 +8,7 @@ diff --git a/src/main/java/io/papermc/paper/ServerBuildInfo.java b/src/main/java
 index 4e099b584c3435ba1ebce492011d35ae1ac0cdf8..ed558bea1f939ab902d3c45417573fba83307abc 100644
 --- a/src/main/java/io/papermc/paper/ServerBuildInfo.java
 +++ b/src/main/java/io/papermc/paper/ServerBuildInfo.java
-@@ -17,6 +17,17 @@ public interface ServerBuildInfo {
+@@ -17,6 +17,21 @@ public interface ServerBuildInfo {
       */
      Key BRAND_PAPER_ID = Key.key("papermc", "paper");
  
@@ -21,6 +21,10 @@ index 4e099b584c3435ba1ebce492011d35ae1ac0cdf8..ed558bea1f939ab902d3c45417573fba
 +     * The brand id for Lophine.
 +     */
 +    Key BRAND_LOPHINE_ID = Key.key("lophinelabs", "lophine");
++    /**
++     * The brand id for Luciferase.
++     */
++    Key BRAND_LUCIFERASE_ID = Key.key("luciferase", "luciferase");
 +    // Lophine end
 +
      /**
