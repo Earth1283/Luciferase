@@ -1,10 +1,13 @@
-為 Lophine 貢獻程式碼
-===============
+為 Luciferase 貢獻程式碼
+=======================
 
 [English](./CONTRIBUTING_EN.md) | [中文（簡體）](./CONTRIBUTING.md) | **中文（繁體）** | [日本語](./CONTRIBUTING_JP.md)
 
 很高興你願意為這個專案貢獻！一般來說，我們對 PR 的審核標準相當寬鬆；
 如果你可以照著下面的規則來，我們就能更快完成審核。
+
+Luciferase 是 Lophine 的分支。為了維持相容性，專案會繼續使用 `lophine-api`、
+`lophine-server`、`fun.bm.lophine` 與 `assets/lophine` 等名稱；一般貢獻請勿重新命名這些介面。
 
 ## 請使用個人帳號進行 Fork
 

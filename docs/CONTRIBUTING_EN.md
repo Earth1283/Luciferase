@@ -1,11 +1,15 @@
-Contributing to Lophine
-=======================
+Contributing to Luciferase
+==========================
 
 **English** | [中文（简体）](./CONTRIBUTING.md) | [中文（繁體）](./CONTRIBUTING_ZH_TW.md) | [日本語](./CONTRIBUTING_JP.md)
 
 We're glad that you want to contribute to our project!  
 In general, our review of pull requests is very lenient.  
 And if you can follow the rules below, we can complete the review faster.
+
+Luciferase is forked from Lophine and intentionally retains the `lophine-api`,
+`lophine-server`, `fun.bm.lophine`, and `assets/lophine` names as compatibility
+interfaces. Do not rename them in ordinary contributions.
 
 ## Please fork using your personal account
 

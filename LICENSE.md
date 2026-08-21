@@ -1,13 +1,15 @@
-Lophine inherits its licensing from the included upstream projects.
+Luciferase is forked from Lophine and inherits its licensing from Lophine and
+the included upstream projects.
 
-Lophine从上游继承了许可证。
+Luciferase 是 Lophine 的分支，并继承 Lophine 及其所含上游项目的许可证。
 
-As such, Lophine is licensed under the
+As such, Luciferase is licensed under the
 [GNU General Public License version 3](licenses/GPL.md); as it inherits it from Folia,
 who in turn inherits it from the original Paper, Spigot, Bukkit and CraftBukkit projects.
 
-因此，Lophine中应当遵守[GNU通用公共许可证-第3版](licenses/GPL.md)；
-因为Lophine从上游Folia继承了它，而Folia又从其上游的Paper、Spigot、Bukkit和Craftbukkit项目中继承了它。
+因此，Luciferase 中应当遵守[GNU通用公共许可证-第3版](licenses/GPL.md)；
+因为 Luciferase 从 Lophine 继承该许可证，而 Lophine 从 Folia 继承，Folia 又从
+Paper、Spigot、Bukkit 和 CraftBukkit 等上游项目继承。
 
 Any author who is _not_ listed below should be presumed to have released their work
 under the original [GPL](licenses/GPL.md) license.

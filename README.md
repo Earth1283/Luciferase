@@ -1,144 +1,81 @@
-<div align="center">
-  <img src="./public/image/lophine/lophine3.png" alt="Lophine Logo" width="300">
+# Luciferase
 
-# Lophine
+> Make your server glow in the dark.
 
-*Lophine 是一个基于Folia的分支，具有许多有用的优化和可配置的原版特性，目标是在Folia上实现更多生电的内容（请注意，完整生电请使用Fabric）*
+Luciferase is a server fork based on [Lophine](https://github.com/LophineLabs/Lophine).
+It carries Lophine's Folia-based optimizations, configurable vanilla behavior,
+redstone-oriented features, bug fixes, and utility features into an independent
+downstream project.
 
-![Created At](https://img.shields.io/github/created-at/LophineLabs/Lophine?style=for-the-badge&color=blue)
-[![License](https://img.shields.io/github/license/LophineLabs/Lophine?style=for-the-badge&color=green)](LICENSE.md)
-[![Issues](https://img.shields.io/github/issues/LophineLabs/Lophine?style=for-the-badge&color=orange)](https://github.com/LophineLabs/Lophine/issues)
+**English** | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md)
 
-![Commit Activity](https://img.shields.io/github/commit-activity/w/LophineLabs/Lophine?style=for-the-badge&color=purple)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/LophineLabs/Lophine?style=for-the-badge&color=yellow)
-![GitHub all releases](https://img.shields.io/github/downloads/LophineLabs/Lophine/total?style=for-the-badge&color=red)
+## Features
 
-![Repo contributors](https://img.shields.io/github/contributors/LophineLabs/Lophine?style=for-the-badge&color=brightgreen)
+- Configurable vanilla mechanics for different server needs
+- Folia-oriented bug fixes and performance improvements
+- Redstone and technical-survival features
+- TPS status display and server utility features
+- Multiple world-format support, including `b_linear`
 
-[English](README.en.md) | **中文（简体）** | [中文（繁體）](README.zh-TW.md)
-</div>
+For complete technical-survival parity, Fabric may still be the better fit.
 
----
+## Compatibility
 
-> **仓库与镜像说明：** GitHub 是 Lophine 的官方上游与唯一权威来源。[CNB](https://cnb.cool/LophineLabs/Lophine) 从 GitHub 自动同步，并针对对应提交独立构建和发布 CNB Releases，服务中国大陆用户。Issue、Pull Request 与 Discussions 统一在 GitHub 进行。
+Luciferase intentionally retains Lophine's Java packages, configuration paths,
+resource namespaces, commands, permissions, and API coordinates. Existing
+Lophine-compatible plugins and configuration should not need a namespace
+migration for this initial fork.
 
-## ✨ 核心特性
+## Requirements
 
-- **可配置的原版特性** - 灵活调整游戏机制以适应不同服务器需求
-- **Tpsbar 支持** - 实时显示服务器 TPS 状态
-- **Folia Bug 修复** - 针对 Folia 已知问题的专项修复
-- **多存档格式支持** - 支持 b_linear（linear 重新实现）存档格式
-- **生电功能增强** - 在 Folia 上实现更多生电内容（完整生电请使用 Fabric）
-- **更多实用功能** - 持续添加有用的服务器功能
+- Git
+- JDK 25
 
-### 额外启动参数
-
-- morninggloryclip.useMojangSource 强制服务端使用mojang源下载文件
-- morninggloryclip.enable.mixin 启用服务器插件的mixin支持
-
-## 📥 下载
-
-### 稳定版本
-
-- 中国大陆（CNB 镜像）：[CNB Releases](https://cnb.cool/LophineLabs/Lophine/-/releases) · [CNB 镜像仓库](https://cnb.cool/LophineLabs/Lophine)
-- 全球 / 官方（GitHub）：[GitHub Releases](https://github.com/LophineLabs/Lophine/releases) · [GitHub 官方仓库](https://github.com/LophineLabs/Lophine)
-
-CNB 与 GitHub 的对应版本基于相同的 Git Commit。中国大陆用户可优先通过 CNB 下载或克隆；代码贡献与问题反馈请前往 GitHub。
-
-### 开发版本
-如果您想体验最新功能，可以通过以下步骤自行构建。
-
-### 构建步骤
+## Building
 
 ```bash
-# 克隆项目
-git clone https://github.com/LophineLabs/Lophine.git
-cd Lophine
-
-# 应用补丁并构建 Paperclip JAR
-./gradlew applyAllPatches && ./gradlew createPaperclipJar
+./gradlew applyAllPatches
+./gradlew createPaperclipJar
 ```
 
-构建完成后，您可以在 `lophine-server/build/libs` 目录中找到生成的 JAR 文件。
+The server JAR is written under `lophine-server/build/libs/`. The module path
+keeps its inherited name for compatibility; distributable server archives are
+branded as Luciferase.
 
-## 🔌 API 使用
+## API compatibility
 
-### Gradle 配置
+The initial fork preserves Lophine's published API coordinate:
 
 ```kotlin
 repositories {
-  maven {
-    url = "https://repo.bacteriawa.com/repository/maven-public/"
-  }
+    maven("https://repo.bacteriawa.com/repository/maven-public/")
 }
 
 dependencies {
-  compileOnly("fun.bm.lophine:lophine-api:26.2.build.+")
+    compileOnly("fun.bm.lophine:lophine-api:26.2.build.+")
 }
 
 java {
-  toolchain.languageVersion.set(JavaLanguageVersion.of(25))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
 ```
 
-### Maven 配置
+The repository above is an inherited build dependency, not a Luciferase
+publishing destination.
 
-```xml
-<repositories>
-  <repository>
-    <id>repository</id>
-    <url>https://repo.bacteriawa.com/repository/maven-public/</url>
-  </repository>
-</repositories>
+## Upstream
 
-<dependencies>
-<dependency>
-  <groupId>fun.bm.lophine</groupId>
-  <artifactId>lophine-api</artifactId>
-  <version>[26.2.build,)</version>
-</dependency>
-</dependencies>
-```
+Lophine is Luciferase's direct upstream and Folia is Lophine's upstream. The
+full Lophine commit history is preserved, and the `upstream` Git remote points
+to the official Lophine repository.
 
-## 💬 社区与支持
+## Contributing
 
-> 如果您对这个项目感兴趣或有任何问题，请随时向我们提问。
+See the [contribution guide](./docs/CONTRIBUTING_EN.md). Compatibility names
+such as `lophine-api`, `lophine-server`, `fun.bm.lophine`, and
+`assets/lophine` must remain stable unless a migration is designed separately.
 
-### 加入我们的社区
+## License
 
-- **QQ群**: [1020403749](https://qm.qq.com/cgi-bin/qm/qr?k=y_MA9UaN7PM9e9J1LIs9Eea3LK8C0h6J&jump_from=webapi&authKey=ap5f8MlbeezXYtnmpnT5ZOFljDuOyV6OAb2PIcViQ+Ilr60Ycq63FDDTsJOZDYtj)
-- **Discord**: [点击加入](https://discord.gg/UXSgPZczcy)
-
-### 获取帮助
-
-- [提交 Issue](https://github.com/LophineLabs/Lophine/issues)
-- [GitHub Discussions](https://github.com/LophineLabs/Lophine/discussions)
-- [项目文档](./docs/)
-
-## 🐛 问题反馈
-
-当您遇到任何问题时，请向我们提问，我们将尽力解决。请记得：
-
-- **清楚描述问题** - 详细说明问题的具体表现
-- **提供完整日志** - 包含错误日志和相关配置信息
-- **环境信息** - 说明服务器版本、插件列表等环境详情
-- **复现步骤** - 如果可能，请提供问题复现的具体步骤
-
-## 🤝 贡献代码
-
-我们欢迎社区贡献！详细的贡献指南请查看：
-
-- [贡献指南 (简体中文)](./docs/CONTRIBUTING.md)
-- [Contributing Guide (English)](./docs/CONTRIBUTING_EN.md)
-- [貢獻指南（繁體中文）](./docs/CONTRIBUTING_ZH_TW.md)
-- [貢献ガイド（日本語）](./docs/CONTRIBUTING_JP.md)
-
-## 📊 项目统计
-
-### BStats 数据
-
-![bStats](https://bstats.org/signatures/server-implementation/Lophine.svg "bStats")
-
-## ⭐ 请给我们一个 Star！
-
-> 你的每一个免费的 ⭐Star 就是我们每一个前进的动力。
+Luciferase inherits its licensing from Lophine and the included upstream
+projects. See [LICENSE.md](./LICENSE.md) for details and attribution.
