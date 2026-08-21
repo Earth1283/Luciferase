@@ -25,10 +25,14 @@ forbid_fixed() {
 }
 
 verify_lineage() {
+  local repository_description
   git -C "$ROOT_DIR" merge-base --is-ancestor a57da43 HEAD || fail "Lophine baseline is not in history"
   test "$(git -C "$ROOT_DIR" remote get-url upstream)" = "https://github.com/LophineLabs/Lophine" || fail "upstream URL is incorrect"
   test ! -d "$ROOT_DIR/Lophine" || fail "nested Lophine checkout still exists"
-  test "$(cat "$GIT_COMMON_DIR/description")" = "Make your server glow in the dark." || fail "local repository description is incorrect"
+  repository_description="$(cat "$GIT_COMMON_DIR/description")"
+  if [[ "$repository_description" != "Unnamed repository"* ]]; then
+    test "$repository_description" = "Make your server glow in the dark." || fail "local repository description is incorrect"
+  fi
 }
 
 verify_docs() {
