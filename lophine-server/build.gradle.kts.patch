@@ -1,6 +1,6 @@
 --- a/folia-server/build.gradle.kts
 +++ b/folia-server/build.gradle.kts
-@@ -7,15 +_,18 @@
+@@ -7,15 +_,22 @@
      `java-library`
      `maven-publish`
      idea
@@ -9,6 +9,9 @@
      id("io.papermc.fill.gradle") version "1.0.12"
  }
 +base.archivesName = "luciferase"
++tasks.named<io.papermc.paperweight.tasks.CreatePaperclipJar>("createPaperclipJar") {
++    outputZip.set(layout.buildDirectory.file("libs/luciferase-paperclip-${project.version}.jar"))
++}
 +
  
  val paperMavenPublicUrl = "https://repo.papermc.io/repository/maven-public/"
